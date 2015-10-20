@@ -31,7 +31,7 @@ add adm group to logstash service account:
   file.recurse:
     - source: salt://logstash/files/conf.d
     - require:
-      - pkg: logstash-pkg
+      - pkg: logstash
 
 logstash:
   service.running:
