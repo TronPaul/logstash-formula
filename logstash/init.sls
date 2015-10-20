@@ -40,9 +40,7 @@ logstash:
     - require:
       - pkg: logstash
     - watch:
-      - file: logstash-config-inputs
-      - file: logstash-config-filters
-      - file: logstash-config-outputs
+      - file: /etc/logstash/conf.d
   pkg.{{logstash.pkgstate}}:
     - name: {{logstash.pkg}}
     - require:
