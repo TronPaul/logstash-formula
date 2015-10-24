@@ -14,6 +14,8 @@ change service group in Ubuntu init script:
     - name: /etc/init.d/logstash
     - pattern: "LS_GROUP=logstash"
     - repl: "LS_GROUP=adm"
+    - require:
+      - pkg: logstash
     - watch_in:
       - service: logstash
 
@@ -25,6 +27,8 @@ add adm group to logstash service account:
       - adm
     - require:
       - pkg: logstash
+    - require_in:
+      - service: logstash
 {%- endif %}
 
 /etc/logstash/conf.d:
